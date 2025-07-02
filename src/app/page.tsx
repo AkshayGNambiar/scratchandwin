@@ -37,7 +37,7 @@ export default function Home() {
   }
 
   // ✅ Validated and typed data
-  const data= result.data;
+
 
  try {
   const res = await fetch('/api/submit', {
@@ -72,7 +72,7 @@ export default function Home() {
     const handleScratchComplete = async () => {
        // setIsScratched(true);
         const id = localStorage.getItem('submissionId');
-        const prize = localStorage.getItem('prize');
+        //const prize = localStorage.getItem('prize');
         if (id) {
             await fetch('/api/markScratched', {
                 method: 'POST',
