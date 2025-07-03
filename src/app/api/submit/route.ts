@@ -3,10 +3,12 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   const body = await request.json();
-  const { name, phone, address } = body;
+  const name=body.data.name
+  const phone=body.data.phone
+  const address=body.data.address
   const forwardedFor = request.headers.get('x-forwarded-for');
   const ip = forwardedFor?.split(',')[0]?.trim() || 'unknown';
- console.log(body);
+ console.log(name);
   // 🔎 Check if this IP already submitted
   const existing = await db
     .collection('submissions')
