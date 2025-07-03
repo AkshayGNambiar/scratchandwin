@@ -6,7 +6,7 @@ export async function POST(request: Request) {
   const { name, phone, address } = body;
   const forwardedFor = request.headers.get('x-forwarded-for');
   const ip = forwardedFor?.split(',')[0]?.trim() || 'unknown';
-
+ console.log(body);
   // 🔎 Check if this IP already submitted
   const existing = await db
     .collection('submissions')
