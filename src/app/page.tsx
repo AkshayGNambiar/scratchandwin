@@ -13,7 +13,7 @@ export default function Home() {
     useEffect(() => {
         const savedPrize = localStorage.getItem('prize');
         const savedId = localStorage.getItem('submissionId');
-        if (savedPrize && savedId) {
+        if (savedPrize) {
           alert("You have already played.");
             setPrize(savedPrize);
             setShowScratch(true);
