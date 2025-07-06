@@ -14,6 +14,7 @@ export default function Home() {
         const savedPrize = localStorage.getItem('prize');
         const savedId = localStorage.getItem('submissionId');
         if (savedPrize && savedId) {
+          alert("You have already played.");
             setPrize(savedPrize);
             setShowScratch(true);
         }
@@ -22,7 +23,7 @@ export default function Home() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   setLoading(true);
-
+ 
   const formData = new FormData(e.currentTarget);
   const raw = Object.fromEntries(formData.entries());
   console.log(raw);
@@ -56,9 +57,10 @@ export default function Home() {
   } else if (response.played) {
     setPrize(response.prize);
     localStorage.setItem('prize', response.prize);
-    setShowScratch(true);
-    setIsScratched(true);
-    alert("You have already played. Here's your previous prize.");
+    //setShowScratch(true);
+    //setIsScratched(true);
+    alert("You have already played. ");
+    window.location.reload();
   } else {
     alert('Submission failed.');
   }
@@ -85,7 +87,7 @@ export default function Home() {
     };
 
     const reset = () => {
-        localStorage.clear();
+      
         setShowScratch(false);
         setIsScratched(false);
         setPrize('');
