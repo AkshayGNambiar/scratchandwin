@@ -88,7 +88,7 @@ export default function Home() {
     };
 
     const reset = () => {
-      
+        alert("Iam going to reload")
         setShowScratch(false);
         setIsScratched(false);
         setPrize('');
