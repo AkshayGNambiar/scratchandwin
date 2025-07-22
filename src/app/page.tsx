@@ -13,17 +13,18 @@ export default function Home() {
     useEffect(() => {
         const savedPrize = localStorage.getItem('prize');
         const savedId = localStorage.getItem('submissionId');
-        if (savedPrize) {
-          alert("You have already played.");
-            setPrize(savedPrize);
-            setShowScratch(true);
-        }
+        console.log(savedPrize)
+       
     }, []);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
+   if (localStorage.getItem('prize')) {
+          alert("You have already played.");
+            return;
+        }
   setLoading(true);
- 
+  
   const formData = new FormData(e.currentTarget);
   const raw = Object.fromEntries(formData.entries());
   console.log(raw);
