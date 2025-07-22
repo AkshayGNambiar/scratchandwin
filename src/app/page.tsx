@@ -12,7 +12,7 @@ export default function Home() {
 
     useEffect(() => {
         const savedPrize = localStorage.getItem('prize');
-        const savedId = localStorage.getItem('submissionId');
+        //const savedId = localStorage.getItem('submissionId');
         console.log(savedPrize)
        
     }, []);
